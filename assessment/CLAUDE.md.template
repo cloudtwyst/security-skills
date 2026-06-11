@@ -1,0 +1,47 @@
+# CLAUDE.md — [CLIENT NAME] Security Assessment
+
+Copy this file to your engagement folder as `CLAUDE.md` and fill in the bracketed values.
+Claude Code reads it automatically on startup. The installed security skills layer on top.
+
+## Engagement context
+
+- **Client:** [CLIENT NAME]
+- **Tenant:** [client.onmicrosoft.com]
+- **Engagement type:** CAF-aligned Security Assessment
+- **Scope:** [Azure landing zone / M365 / Hybrid / Full stack]
+- **CAF phase:** [Strategy / Plan / Ready / Adopt / Govern / Manage]
+- **Assessment start:** [YYYY-MM-DD]
+- **Lead assessor:** [NAME]
+
+## In-scope subscriptions / management groups
+
+- [List the MG or subscription names/IDs in scope]
+- [e.g. Landing Zones MG, Contoso-Corp-001]
+
+## Known constraints
+
+- No destructive Azure operations during assessment.
+- All findings go to `findings.md` with severity (Critical / High / Medium / Low).
+- All client decisions and derogations go to `decisions.md` with date.
+- Redact tenant IDs, subscription IDs, and IP addresses before sharing outputs.
+
+## Assessment phases
+
+Work through phases in order. Do not skip ahead — each phase informs the next.
+
+| Phase | Topic | Prompt file |
+|---|---|---|
+| 1 | Scoping & architecture | `prompts/01-scoping.md` |
+| 2 | Identity & access | `prompts/02-identity.md` |
+| 3 | Landing zone & governance | `prompts/03-landing-zone.md` |
+| 4 | Network security | `prompts/04-network.md` |
+| 5 | Monitoring & SIEM | `prompts/05-monitoring.md` |
+| 6 | Security posture | `prompts/06-posture.md` |
+| 7 | Compliance & data protection | `prompts/07-compliance.md` |
+| 8 | Remediation & roadmap | `prompts/08-remediation.md` |
+
+## Output
+
+- Findings: `findings.md`
+- Decisions: `decisions.md`
+- Final report: `reports/[CLIENT]-security-assessment-[DATE].md`
