@@ -1,0 +1,43 @@
+Before enabling Defender XDR broadly, configure the foundations so incidents are useful, automated actions are safe, and teams know who owns response.
+
+1. Licensing and portals
+- Confirm required licences for Defender for Endpoint, Defender for Identity, Defender for Office 365, Defender for Cloud Apps, and Entra ID capabilities.
+- Confirm administrators can access the Microsoft Defender portal.
+
+2. Role-based access
+- Configure RBAC for security operators, threat hunters, device admins, and read-only stakeholders.
+- Use least privilege.
+- Protect admin access with MFA and Privileged Identity Management.
+
+3. Data sources
+- Onboard endpoints to Defender for Endpoint.
+- Connect Defender for Identity sensors to domain controllers if used.
+- Configure Defender for Office 365 protections and reporting.
+- Connect cloud app and identity signals.
+- Integrate Sentinel if you use it for SIEM and orchestration.
+
+4. Device groups and rollout rings
+- Create device groups for pilot, standard users, privileged users, servers, and high-risk assets.
+- Test policy changes in rings before broad rollout.
+
+5. Automated investigation and response
+- Decide the automation level for devices and users.
+- Start with pilot groups, validate actions, then expand.
+- Review exclusions and scope for automatic attack disruption so critical accounts and devices are handled deliberately.
+
+6. Alert and incident process
+- Define severity handling, ownership, escalation, SLAs, and handoff to IT operations.
+- Configure notifications and ticket integration.
+- Document when to isolate devices, disable accounts, revoke sessions, or collect forensic packages.
+
+7. Baseline security settings
+- Enable endpoint detection and response.
+- Configure antivirus, cloud protection, tamper protection, network protection, web protection, and attack surface reduction rules.
+- Tune email protection, anti-phishing, Safe Links, Safe Attachments, and user reporting.
+
+8. Validation
+- Run simulations or test alerts.
+- Confirm incidents correlate across endpoint, identity, email, and cloud app data.
+- Review false positives and operational impact before scaling.
+
+The main preparation is identity and device onboarding, RBAC, automation scope, response process, and staged rollout.

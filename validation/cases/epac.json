@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "prompt": "Bootstrap an EPAC repository with dev and prod pacEnvironments and GitHub Actions pipelines.",
+      "expect": [
+        { "label": "define pacEnvironments in globalSettings.jsonc", "any": ["globalSettings", "pacEnvironment"] },
+        { "label": "use GitHub OIDC federation — no client secrets in pipelines", "any": ["oidc", "federat"] },
+        { "label": "separate service principal per environment scoped to its management group", "any": ["service principal", "sp per"] },
+        { "label": "epac-dev pointed at isolated management group — no production workloads", "any": ["epac-dev", "isolated"] },
+        { "label": "plan on PR, deploy on merge — plan diff as PR comment or artifact", "any": ["plan", "pr"] }
+      ]
+    },
+    {
+      "prompt": "How do I safely promote a policy from Audit to Deny in production using EPAC?",
+      "expect": [
+        { "label": "start as Audit, monitor compliance, then promote to Deny", "any": ["audit", "deny"] },
+        { "label": "review the plan diff before deploying — broad Deny can break pipelines", "any": ["plan", "diff"] },
+        { "label": "never run Deploy-PolicyPlan directly against prod outside a pipeline", "any": ["pipeline", "prod"] },
+        { "label": "pacOwnerId partitions ownership — don't share EPAC instance with another team", "any": ["pacOwner"] }
+      ]
+    },
+    {
+      "prompt": "How do I manage exemptions in EPAC and avoid them becoming permanent policy holes?",
+      "expect": [
+        { "label": "exemptions stored in policyExemptions/ folder with expiry date and justification", "any": ["policyExemptions", "exemption"] },
+        { "label": "time-bound with expiry — EPAC alerts near expiry", "any": ["expiry", "time-bound"] },
+        { "label": "named owner for each exemption", "any": ["owner"] }
+      ]
+    }
+  ]
+}

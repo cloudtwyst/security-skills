@@ -1,0 +1,43 @@
+Start with the incident, then pivot across identities, devices, mail, cloud apps, and alerts until you have the full timeline.
+
+1. Open the incident
+- In Microsoft Defender XDR, open the incident and review severity, impacted assets, related alerts, entities, and the incident graph.
+- Confirm whether this is active, contained, or historical.
+- Assign an owner and set status so responders do not duplicate work.
+
+2. Build the timeline
+- Review alerts in time order.
+- Identify the first known malicious activity, the initial user or device, and how the activity moved from endpoint to identity.
+- Note commands, processes, IP addresses, URLs, files, devices, mail messages, and accounts.
+
+3. Investigate the endpoint
+- Open the device page.
+- Review device timeline, logged-on users, process tree, file evidence, network connections, persistence, and antivirus detections.
+- Check exposure level, missing patches, vulnerable software, and device risk.
+- Collect an investigation package if needed.
+
+4. Investigate the identity
+- Open the user page.
+- Review sign-ins, risky sign-ins, MFA changes, impossible travel, token activity, role changes, mailbox access, and unusual resource access.
+- Revoke sessions and reset credentials if compromise is confirmed.
+
+5. Check email and collaboration paths
+- Search for phishing messages, malicious attachments, URLs, forwarding rules, inbox rules, and consent phishing.
+- Remove malicious messages from mailboxes where appropriate.
+
+6. Hunt across the environment
+- Use Advanced Hunting to search for related indicators across DeviceProcessEvents, DeviceNetworkEvents, IdentityLogonEvents, CloudAppEvents, EmailEvents, and AlertEvidence.
+- Pivot on hashes, IPs, domains, URLs, account names, device names, and time windows.
+
+7. Contain the attack
+- Isolate compromised devices.
+- Disable or reset compromised accounts.
+- Revoke sessions.
+- Block indicators where appropriate.
+- Remove malicious files, persistence, app consent, and mailbox rules.
+- Review automatic attack disruption actions and confirm they did not affect legitimate assets.
+
+8. Close with lessons and hardening
+- Document root cause, blast radius, remediation, and remaining risk.
+- Update detections, ASR rules, Conditional Access, device configuration, email protection, and identity controls.
+- Close the incident only after evidence shows the attacker no longer has access.

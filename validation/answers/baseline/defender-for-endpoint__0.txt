@@ -1,0 +1,42 @@
+Roll out Microsoft Defender for Endpoint in rings so you get telemetry first, then enforce controls such as attack surface reduction after measuring impact.
+
+1. Prepare the service
+- Confirm licensing and tenant settings.
+- Define RBAC roles and device groups.
+- Decide pilot, broad deployment, server, and high-risk device rings.
+- Connect Defender for Endpoint to Intune, Defender XDR, and Sentinel if used.
+
+2. Onboard endpoints
+- Use Intune for managed Windows devices.
+- Use Group Policy, Configuration Manager, local script, or VDI onboarding where appropriate.
+- Onboard macOS, Linux, iOS, and Android using the supported platform methods.
+- Verify devices appear in the Defender portal and are reporting sensor health.
+
+3. Establish the security baseline
+- Enable real-time protection, cloud-delivered protection, automatic sample submission, tamper protection, network protection, and EDR in block mode where appropriate.
+- Configure web content filtering and controlled folder access if required.
+- Keep OS and Defender components updated.
+
+4. Roll out ASR safely
+- Start attack surface reduction rules in audit mode.
+- Use a pilot group that represents real business workloads.
+- Review ASR audit events and identify line-of-business app impact.
+- Create exclusions only when there is a clear business need and a low security risk.
+- Move rules from audit to warn or block in rings.
+
+5. Prioritise high-value ASR rules
+- Block Office child process creation.
+- Block executable content from email and webmail.
+- Block credential stealing from LSASS.
+- Block persistence through WMI event subscription.
+- Block abuse of vulnerable signed drivers if supported.
+
+6. Monitor deployment
+- Track onboarding status, sensor health, exposure score, secure score recommendations, active alerts, and ASR rule events.
+- Review false positives and exceptions regularly.
+
+7. Operationalise response
+- Define who can isolate devices, collect investigation packages, run antivirus scans, and trigger live response.
+- Test response actions before relying on them during an incident.
+
+The rollout should move from visibility to enforcement: onboard, baseline, audit ASR, tune, warn or block, then monitor continuously.

@@ -1,0 +1,45 @@
+Use Azure Key Vault with managed identity so the app never stores a password, client secret, or certificate private key in code or configuration.
+
+1. Create the vault
+- Create a Key Vault in the same region as the workload where possible.
+- Use Azure RBAC permission model unless you have a specific reason to use legacy access policies.
+- Enable soft delete and purge protection for production vaults.
+
+Example:
+az keyvault create --name <vault-name> --resource-group <rg> --location <region> --enable-rbac-authorization true --enable-purge-protection true
+
+2. Add the secret
+az keyvault secret set --vault-name <vault-name> --name DbConnectionString --value "<secret-value>"
+
+3. Enable a managed identity on the app
+- For App Service, Function Apps, Container Apps, VMs, and many Azure services, enable a system-assigned or user-assigned managed identity.
+- System-assigned is simple for one app.
+- User-assigned is useful when several resources need the same identity lifecycle.
+
+Example:
+az webapp identity assign --name <app-name> --resource-group <rg>
+
+4. Grant least privilege
+- Assign the managed identity the Key Vault Secrets User role at the vault scope, or a narrower scope if your design supports it.
+- Do not grant Contributor or Owner just so the app can read secrets.
+
+Example:
+az role assignment create --assignee <principal-id> --role "Key Vault Secrets User" --scope <vault-resource-id>
+
+5. Read the secret from code
+- Use the Azure SDK and DefaultAzureCredential.
+- In Azure, it uses the managed identity.
+- Locally, it can use the developer's Azure CLI or Visual Studio sign-in.
+
+.NET example:
+var client = new SecretClient(new Uri("https://<vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+KeyVaultSecret secret = await client.GetSecretAsync("DbConnectionString");
+
+6. Harden access
+- Use a private endpoint for sensitive workloads.
+- Disable public network access where practical.
+- Send diagnostic logs to Log Analytics.
+- Alert on secret reads, permission changes, and failed access attempts.
+- Cache secrets in the app briefly rather than reading from Key Vault on every request.
+
+The core pattern is: app managed identity, Key Vault RBAC, least privilege, purge protection, private access, and logging.

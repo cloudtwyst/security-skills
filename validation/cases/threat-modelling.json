@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "prompt": "Run a threat model for a new system design.",
+      "expect": [
+        { "label": "build a data-flow diagram with trust boundaries", "any": ["data-flow", "trust boundar"] },
+        { "label": "enumerate threats with STRIDE per element/flow", "any": ["stride"] },
+        { "label": "map each ranked threat to a concrete, actionable mitigation", "any": ["mitigation"] },
+        { "label": "treat threat modelling as iterative; re-model on design change", "any": ["iterative", "revisit", "re-model"] }
+      ]
+    },
+    {
+      "prompt": "What does the E in STRIDE cover and how is it mitigated?",
+      "expect": [
+        { "label": "E is elevation of privilege, mitigated by authorization", "any": ["levation of privilege"] },
+        { "label": "ties to the authorization security property", "any": ["authorization"] }
+      ]
+    }
+  ]
+}

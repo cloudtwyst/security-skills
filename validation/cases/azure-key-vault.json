@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "prompt": "Set up Azure Key Vault so an app can read secrets securely.",
+      "expect": [
+        { "label": "app authenticates with a managed identity, no secrets in code/config", "any": ["managed identity"] },
+        { "label": "prefer Azure RBAC over legacy access policies, least privilege", "any": ["rbac"] },
+        { "label": "enable soft delete and purge protection", "any": ["purge protection", "soft delete"] },
+        { "label": "restrict with private endpoints / disable public access for sensitive vaults", "any": ["private endpoint"] }
+      ]
+    },
+    {
+      "prompt": "How should I isolate vaults and keep secrets fresh?",
+      "expect": [
+        { "label": "one vault per app per environment to limit blast radius", "any": ["vault per", "blast radius"] },
+        { "label": "automate rotation and set expiry / monitor near-expiry", "any": ["rotation", "expiry"] }
+      ]
+    }
+  ]
+}

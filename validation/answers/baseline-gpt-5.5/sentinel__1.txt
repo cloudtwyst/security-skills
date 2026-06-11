@@ -1,0 +1,42 @@
+Automate Sentinel response with analytics rules, automation rules, and playbooks. Keep the first automations low-risk, observable, and reversible.
+
+1. Choose repeatable scenarios
+- Start with common incidents such as phishing, impossible travel, malware alert enrichment, suspicious IP lookup, or disabled user containment.
+- Avoid destructive automation until the detection quality is proven.
+
+2. Build or tune analytics rules
+- Use scheduled, near-real-time, or Microsoft security rules.
+- Map entities such as Account, Host, IP, URL, FileHash, and Mailbox.
+- Map detections to MITRE ATT&CK tactics and techniques.
+- Set severity and incident grouping deliberately.
+
+3. Create automation rules
+- Use automation rules to assign owners, set severity, add tags, change status, or trigger playbooks when an incident is created or updated.
+- Scope rules by analytics rule, severity, title, tactics, or entities.
+
+4. Build playbooks with Logic Apps
+- Common playbook steps include enrich IP/domain/hash, check user risk, open a ticket, notify Teams, disable a user, revoke sessions, isolate a device, block an indicator, or send approval for containment.
+- Use managed identity for playbook permissions.
+- Grant only the permissions each playbook needs.
+
+5. Add approvals for high-impact actions
+- Require human approval before disabling users, isolating devices, deleting mail, or blocking broad indicators.
+- Log the approver and action result.
+
+6. Test safely
+- Run playbooks on test incidents.
+- Confirm entity mapping works.
+- Confirm failures are visible.
+- Confirm the playbook cannot act on the wrong user or device.
+
+7. Monitor automation
+- Review Logic App run history, Sentinel incident updates, failures, and execution time.
+- Alert on playbook failure.
+- Track automation value, false positives, and analyst time saved.
+
+8. Improve over time
+- Convert analyst runbook steps into automation one by one.
+- Keep containment actions tied to high-confidence detections.
+- Review permissions and automation rules regularly.
+
+Good Sentinel automation enriches and routes every incident, but only contains assets automatically when the detection is trusted and the blast radius is understood.

@@ -1,0 +1,40 @@
+To remove standing Global Administrator access, move privileged access to Microsoft Entra Privileged Identity Management and make elevation temporary, approved, and monitored.
+
+1. Prepare emergency access
+- Maintain at least two cloud-only emergency access accounts.
+- Protect them with strong credentials and monitor their sign-ins.
+- Exclude them only from policies that could lock you out.
+
+2. Inventory privileged assignments
+- List all active and eligible assignments for Global Administrator, Privileged Role Administrator, Security Administrator, Application Administrator, Cloud Application Administrator, Exchange Administrator, SharePoint Administrator, Intune Administrator, and Conditional Access Administrator.
+- Identify users with permanent active assignments.
+
+3. Convert standing admins to eligible
+- In PIM, change permanent active Global Administrator assignments to eligible assignments.
+- Use least privilege roles instead of Global Administrator wherever possible.
+- Remove accounts that do not need the role.
+
+4. Configure activation requirements
+- Require MFA on activation.
+- Require justification.
+- Require approval for the most sensitive roles.
+- Require a ticket number if your process uses one.
+- Use short activation durations such as one to four hours.
+- Notify security administrators when high-privilege roles are activated.
+
+5. Limit who can manage privilege
+- Keep Privileged Role Administrator tightly controlled.
+- Use access reviews for eligible assignments.
+- Remove stale guests, service accounts, and shared accounts from privileged roles.
+
+6. Monitor and review
+- Alert on role assignment changes, PIM activation, permanent assignment creation, and emergency account sign-in.
+- Review PIM history and audit logs regularly.
+- Run recurring access reviews for privileged roles.
+
+7. Roll out safely
+- Pilot with a small admin group.
+- Confirm admins can activate and perform their work.
+- Then remove remaining standing Global Administrator assignments.
+
+The end state should be no daily-use standing Global Administrators, just-in-time activation through PIM, and emergency access accounts reserved for break-glass only.

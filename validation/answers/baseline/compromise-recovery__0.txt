@@ -1,0 +1,38 @@
+Treat this as an active identity compromise. Work from a clean device and a trusted network, keep communications out of the compromised tenant, and involve legal, security leadership, and incident response support immediately.
+
+1. Regain a trusted admin path
+- Confirm at least one emergency access account is under your control.
+- Change its password from a clean workstation and require strong MFA.
+- If no trusted Global Admin remains, open an emergency support case with Microsoft.
+
+2. Preserve the evidence you will need
+- Export Entra ID sign-in logs, audit logs, risky user events, role assignment changes, app consent changes, mailbox audit data, Defender alerts, and Sentinel incidents.
+- Do this before large cleanup actions where possible so you do not lose forensic context.
+
+3. Identify attacker-controlled access
+- Review Global Administrator, Privileged Role Administrator, Security Administrator, Exchange Administrator, Application Administrator, Cloud Application Administrator, and Intune Administrator assignments.
+- Check active and eligible PIM assignments.
+- Look for new users, guests, service principals, app registrations, credentials, certificates, federated credentials, and consent grants.
+- Review Conditional Access changes, named locations, authentication method changes, mailbox forwarding, inbox rules, and delegated admin relationships.
+
+4. Evict in one coordinated action
+- Remove attacker accounts from privileged roles.
+- Disable malicious accounts and guests.
+- Remove malicious PIM eligibility.
+- Delete or disable malicious app registrations and service principals.
+- Remove rogue app secrets, certificates, OAuth grants, federation settings, and external admin relationships.
+- Revoke refresh tokens and sessions for compromised accounts.
+- Reset passwords for impacted users and all privileged accounts.
+- Remove attacker-registered MFA methods and require MFA re-registration for affected admins.
+
+5. Rotate credentials that could restore access
+- Rotate application secrets, certificates, automation credentials, break-glass credentials, and Key Vault secrets the attacker may have accessed.
+- If the tenant is hybrid, review Entra Connect, federation, AD FS, pass-through authentication agents, and privileged on-premises accounts.
+- If on-premises AD is compromised, rotate KRBTGT twice using the recommended waiting period between rotations.
+
+6. Verify containment
+- Re-check privileged role membership, PIM assignments, app credentials, consent grants, federation settings, Conditional Access policies, and mailbox rules.
+- Monitor sign-ins and audit logs for the attacker's IPs, devices, user agents, and persistence attempts.
+- Keep evidence, a timeline, and a record of every remediation action.
+
+Do not assume the incident is over when the Global Admin account is removed. A Global Admin can plant persistence in identity, apps, federation, mail, devices, and secrets.

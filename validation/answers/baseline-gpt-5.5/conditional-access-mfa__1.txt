@@ -1,0 +1,41 @@
+To require phishing-resistant MFA for all Global Administrators, create a Conditional Access policy that targets the Global Administrator role and requires a phishing-resistant authentication strength.
+
+1. Prepare first
+- Confirm at least two emergency access accounts exist.
+- Exclude emergency access accounts from this policy only if needed to prevent lockout.
+- Monitor emergency account sign-ins.
+- Make sure every Global Administrator has registered a supported phishing-resistant method.
+
+2. Choose supported methods
+- FIDO2 security keys.
+- Certificate-based authentication.
+- Windows Hello for Business where appropriate.
+- Use the built-in phishing-resistant MFA authentication strength or a custom authentication strength that allows only approved methods.
+
+3. Create the policy
+- Go to Microsoft Entra admin center.
+- Open Protection > Conditional Access.
+- Create a new policy.
+- Assign users by directory role and select Global Administrator.
+- Target cloud apps: All cloud apps, or at minimum Microsoft Admin Portals while piloting.
+- Conditions can be all locations and all device platforms unless you have a specific exception.
+- Grant controls: Require authentication strength, then select phishing-resistant MFA.
+
+4. Pilot safely
+- Start in report-only mode.
+- Review sign-in logs and Conditional Access insights.
+- Confirm every Global Administrator can satisfy the requirement.
+- Fix registration gaps before turning it on.
+
+5. Enforce
+- Turn the policy on.
+- Test admin portal access with a Global Administrator account.
+- Confirm weaker MFA methods such as SMS or voice cannot satisfy the policy.
+
+6. Monitor and maintain
+- Alert on changes to the policy.
+- Review Global Administrator membership and PIM eligibility.
+- Require PIM activation for Global Administrator instead of permanent standing access.
+- Review authentication method registration regularly.
+
+The result should be that a Global Administrator cannot access cloud apps or admin portals with password plus SMS, voice, or push-only MFA. They must use a phishing-resistant method.

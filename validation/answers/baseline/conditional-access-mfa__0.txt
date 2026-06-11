@@ -1,0 +1,46 @@
+Design the Conditional Access baseline in stages so you improve security without locking out users or administrators.
+
+1. Prepare emergency access
+- Create at least two cloud-only emergency access accounts.
+- Exclude them from Conditional Access policies that could block all access.
+- Monitor and alert on any sign-in from these accounts.
+
+2. Inventory users, apps, and risk
+- Identify administrators, standard users, guests, service accounts, break-glass accounts, legacy protocols, critical apps, and locations.
+- Identify apps that cannot support modern authentication.
+
+3. Start in report-only mode
+- Build policies in report-only mode first.
+- Review impact logs to see who would be blocked or prompted.
+- Fix service accounts, legacy auth, and app compatibility issues before enforcing.
+
+4. Baseline policies
+- Require MFA for all administrators.
+- Require MFA for all users, at least when risk, location, or application sensitivity requires it.
+- Block legacy authentication.
+- Require compliant or hybrid joined devices for sensitive apps where appropriate.
+- Require phishing-resistant MFA for privileged roles.
+- Use sign-in risk and user risk policies if licensed.
+
+5. Use groups and rollout rings
+- Pilot with IT and a small business group.
+- Expand to departments or regions.
+- Keep exclusions temporary and reviewed.
+- Avoid excluding broad groups such as all admins or all executives.
+
+6. Tune session and access controls
+- Use sign-in frequency and persistent browser session controls where needed.
+- Apply stricter controls to admin portals and sensitive apps.
+- Use named locations carefully. Do not treat office IPs as fully trusted without other controls.
+
+7. Monitor enforcement
+- Review Conditional Access insights, sign-in logs, failures, and user helpdesk tickets.
+- Alert on policy changes and emergency account use.
+- Document every policy purpose, owner, included users, excluded users, and rollback plan.
+
+8. Move to enforcement
+- Enable policies ring by ring.
+- Keep a tested rollback path.
+- Review policies quarterly and after major application or identity changes.
+
+The safest rollout is report-only, pilot, measure, fix impact, enforce, then expand.

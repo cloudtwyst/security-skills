@@ -1,0 +1,23 @@
+{
+  "cases": [
+    {
+      "prompt": "How do I automatically route all Azure resource diagnostic logs to Sentinel using policy?",
+      "expect": [
+        { "label": "use deployIfNotExists (DINE) policy to auto-configure diagnostic settings", "any": ["deployifnotexists", "dine"] },
+        { "label": "assign built-in diagnostic settings initiative at Landing Zones MG scope", "any": ["landing zones", "management group", "initiative"] },
+        { "label": "parameterise the workspace resource ID — do not hard-code", "any": ["parameter", "workspace"] },
+        { "label": "run remediation tasks for existing resources after initial assignment", "any": ["remediation", "existing"] },
+        { "label": "run Deploy-RolesPlan to grant managed identity Monitoring Contributor rights", "any": ["roles plan", "monitoring contributor", "managed identity"] }
+      ]
+    },
+    {
+      "prompt": "How do I reduce Sentinel ingestion cost when collecting diagnostic logs at scale?",
+      "expect": [
+        { "label": "route high-value security logs to Analytics tier", "any": ["analytics tier", "analytics"] },
+        { "label": "route high-volume low-fidelity logs to Auxiliary/Basic tier", "any": ["auxiliary", "basic logs"] },
+        { "label": "set table-level retention deliberately", "any": ["retention", "table"] },
+        { "label": "NSG flow logs use Network Watcher — not diagnostic settings", "any": ["nsg flow", "network watcher"] }
+      ]
+    }
+  ]
+}

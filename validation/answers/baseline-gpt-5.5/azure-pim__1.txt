@@ -1,0 +1,37 @@
+For privileged role activation, set controls that prove the user is legitimate, the task is justified, and the elevation is temporary.
+
+1. Require MFA on activation
+- Require MFA every time a privileged role is activated.
+- For the highest roles, prefer phishing-resistant methods such as FIDO2 security keys or certificate-based authentication.
+
+2. Require justification
+- Make users enter a business reason for activation.
+- Keep the justification in audit history for review.
+
+3. Require approval for sensitive roles
+- Use approval for Global Administrator, Privileged Role Administrator, Security Administrator, Application Administrator, Cloud Application Administrator, Conditional Access Administrator, Exchange Administrator, and roles that can change authentication or access policy.
+- Use trained approvers, not broad distribution lists.
+
+4. Keep activation duration short
+- Use the shortest practical duration.
+- One to two hours is a good default for highly privileged roles.
+- Avoid all-day activations unless the role genuinely needs it.
+
+5. Require ticket information where possible
+- If you use ITSM, require a ticket number for activation.
+- Use this to connect privileged access to an approved change or incident.
+
+6. Send notifications
+- Notify the user, approvers, and security operators when sensitive roles are activated.
+- Alert on activation outside business hours or from unusual locations.
+
+7. Scope access tightly
+- Use administrative units or narrower roles when possible.
+- Do not use Global Administrator for tasks that have a specific admin role.
+
+8. Review access regularly
+- Use access reviews for eligible assignments.
+- Remove inactive, stale, or unnecessary eligible admins.
+- Review PIM audit history for repeated or unusual activation.
+
+The strongest configuration is phishing-resistant MFA, approval, justification, ticket number, short duration, notification, and recurring access review.

@@ -1,0 +1,38 @@
+Isolate Key Vaults by ownership, environment, workload criticality, and blast radius. Do not put every secret for every app into one shared vault unless the secrets all have the same administrators, network boundary, lifecycle, and risk level.
+
+1. Separate by environment
+- Use different vaults for dev, test, staging, and production.
+- Never let non-production administrators manage production secrets.
+- Use separate RBAC assignments per environment.
+
+2. Separate by application or trust boundary
+- A common pattern is one vault per app per environment.
+- This limits blast radius if one app identity is compromised.
+- Shared platform secrets can live in a separate platform vault with stricter ownership.
+
+3. Separate by data sensitivity
+- Keep high-value signing keys, encryption keys, and production credentials away from low-risk application secrets.
+- Use stricter networking, approval, logging, and access review for high-value vaults.
+
+4. Use least privilege
+- Give apps data-plane roles such as Key Vault Secrets User only when they need to read secrets.
+- Give operators only the permissions they need to manage secrets, keys, or certificates.
+- Review role assignments regularly.
+
+5. Keep secrets fresh
+- Set expiry dates on secrets and certificates.
+- Use automated rotation where supported, such as storage account key rotation or certificate auto-renewal.
+- Prefer short-lived credentials and managed identity over long-lived secrets.
+- Track secret versions and update applications to use the current version.
+
+6. Monitor expiry and access
+- Alert before secrets and certificates expire.
+- Send Key Vault diagnostic logs to Log Analytics.
+- Alert on secret reads from unusual identities, failed access, role assignment changes, purge attempts, and network rule changes.
+
+7. Design for rotation
+- Store secrets with clear names and owners.
+- Keep runbooks for rotation and rollback.
+- Test application restart or refresh behaviour so a rotated secret does not cause an outage.
+
+The practical rule is simple: isolate vaults where compromise, administration, or rotation requirements differ.

@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "prompt": "Remove standing Global Admin and require just-in-time elevation.",
+      "expect": [
+        { "label": "convert standing assignments to eligible / just-in-time activation", "any": ["eligible", "just-in-time"] },
+        { "label": "require approval and MFA / authentication strength for sensitive roles", "any": ["approval", "authentication strength"] },
+        { "label": "keep break-glass accounts with permanent access, excluded from JIT", "any": ["break-glass"] },
+        { "label": "configure recurring access reviews of assignments", "any": ["access review"] }
+      ]
+    },
+    {
+      "prompt": "What activation controls should I set for privileged roles?",
+      "expect": [
+        { "label": "require justification and ticket info on activation", "any": ["justification", "ticket"] },
+        { "label": "set a maximum activation duration", "any": ["duration"] }
+      ]
+    }
+  ]
+}

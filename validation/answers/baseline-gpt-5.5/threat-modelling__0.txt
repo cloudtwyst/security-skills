@@ -1,0 +1,41 @@
+To run a threat model, bring together the system design, the people who understand it, and a structured way to identify what can go wrong.
+
+1. Define scope
+- Name the system, business purpose, users, administrators, external parties, and critical assets.
+- Set boundaries: what is included, what is excluded, and what assumptions are being made.
+
+2. Describe the architecture
+- Create a data flow diagram.
+- Show users, processes, services, databases, queues, APIs, identity providers, admin paths, third-party dependencies, and trust boundaries.
+- Mark where sensitive data is stored, processed, and transmitted.
+
+3. Identify assets and security objectives
+- List data types, secrets, credentials, keys, business functions, and availability requirements.
+- Define what confidentiality, integrity, availability, authentication, authorisation, and auditability mean for the system.
+
+4. Apply STRIDE
+- Spoofing: can an attacker pretend to be a user, service, or device?
+- Tampering: can data, messages, or code be changed?
+- Repudiation: can actions occur without reliable audit evidence?
+- Information disclosure: can data be exposed?
+- Denial of service: can the system be made unavailable?
+- Elevation of privilege: can a lower-privileged actor gain higher privilege?
+
+5. Rate and prioritise threats
+- Estimate likelihood and impact.
+- Prioritise threats that cross trust boundaries, affect sensitive data, expose admin paths, or create broad compromise.
+
+6. Define mitigations
+- Add authentication, authorisation, input validation, encryption, rate limiting, logging, alerting, segmentation, secret management, least privilege, secure defaults, and recovery controls.
+- Assign each mitigation an owner and due date.
+
+7. Validate coverage
+- Check whether each high-risk threat has a control.
+- Record accepted risks explicitly.
+- Add test cases for important controls.
+
+8. Repeat when the design changes
+- Threat modelling is iterative.
+- Revisit the model when new components, data flows, identities, integrations, or trust boundaries are introduced.
+
+The useful output is not just a diagram. It is a short list of realistic threats, agreed mitigations, owners, and follow-up tests.

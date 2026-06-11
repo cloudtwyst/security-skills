@@ -1,0 +1,50 @@
+For a new Microsoft Entra ID tenant, design identity as a control plane. Start with administration, authentication, lifecycle, applications, devices, and monitoring.
+
+1. Tenant and administrative model
+- Use a clear tenant naming and domain strategy.
+- Verify custom domains.
+- Create at least two emergency access accounts.
+- Keep daily admin accounts separate from normal user accounts.
+- Use least privilege roles and Privileged Identity Management for eligible admin access.
+
+2. Authentication baseline
+- Require MFA for all users, with stronger requirements for administrators.
+- Prefer phishing-resistant authentication for privileged users.
+- Disable legacy authentication.
+- Configure self-service password reset where appropriate.
+- Standardise authentication methods and remove weak methods over time.
+
+3. Conditional Access
+- Build policies in report-only mode first.
+- Start with administrators, then expand to all users.
+- Require MFA, block legacy auth, require compliant devices for sensitive apps, and apply risk-based controls if licensed.
+- Exclude emergency access accounts carefully and monitor them.
+
+4. User and group lifecycle
+- Define joiner, mover, and leaver processes.
+- Use dynamic groups where practical.
+- Automate provisioning from HR or identity sources if available.
+- Use access packages and access reviews for external access and sensitive groups.
+
+5. Application access
+- Register applications with clear owners.
+- Use managed identities for Azure-hosted apps where possible.
+- Restrict user consent and use admin consent workflow.
+- Review enterprise applications, permissions, and app credentials regularly.
+
+6. Device strategy
+- Decide whether devices are Entra joined, hybrid joined, or registered.
+- Use Intune compliance for access decisions.
+- Separate privileged administration devices from everyday browsing and email.
+
+7. Hybrid and external identities
+- If hybrid identity is needed, design Entra Connect or Cloud Sync carefully.
+- Decide password hash sync, pass-through authentication, or federation based on requirements.
+- Configure B2B collaboration settings and guest lifecycle controls.
+
+8. Monitoring and governance
+- Send sign-in and audit logs to Log Analytics or Sentinel.
+- Alert on privileged role changes, risky sign-ins, app consent, Conditional Access changes, and emergency account use.
+- Review identity secure score and governance reports.
+
+The target state is no standing privilege, strong authentication, controlled app consent, governed access, managed devices, and logs that support investigation.

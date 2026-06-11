@@ -1,0 +1,46 @@
+Design Microsoft Sentinel around data value, retention needs, and response workflows. Ingestion cost should be a design input, not an afterthought.
+
+1. Workspace strategy
+- Use a dedicated Log Analytics workspace for Sentinel unless you have a clear reason to share.
+- Choose the region based on data residency, latency, and where your security team operates.
+- Decide whether you need one workspace or multiple workspaces for regulatory, regional, or operational separation.
+
+2. Data sources
+- Connect high-value security sources first: Entra ID sign-in logs, audit logs, Defender XDR, Microsoft 365, Azure Activity, key Azure resource logs, firewalls, DNS, identity systems, and critical servers.
+- Avoid connecting every verbose log source before you know how it will be used.
+
+3. Tables and retention
+- Set retention based on investigation requirements and compliance.
+- Use analytics retention for frequently queried data.
+- Use archive or export options for long-term retention where appropriate.
+
+4. Cost controls
+- Estimate daily ingestion before onboarding sources.
+- Use commitment tiers only when volume is predictable.
+- Filter noisy sources at collection where possible.
+- Use Data Collection Rules for supported sources.
+- Avoid collecting debug, verbose, or duplicate logs unless needed.
+- Monitor ingestion by table using Usage and cost workbooks or KQL.
+
+5. Analytics design
+- Enable analytics rules that match real use cases.
+- Tune thresholds and entity mapping.
+- Map detections to MITRE ATT&CK tactics and techniques where possible.
+- Suppress or tune noisy rules.
+
+6. Incident operations
+- Define severity, ownership, escalation, SLAs, and closure reasons.
+- Create playbooks for common response actions.
+- Integrate with ticketing if needed.
+
+7. Access and governance
+- Use least privilege roles for readers, responders, hunters, and workspace administrators.
+- Protect admin access with MFA and PIM.
+- Track connector owners and data source purpose.
+
+8. Review regularly
+- Review ingestion cost weekly during rollout.
+- Remove sources that do not support detections, hunting, compliance, or investigation.
+- Tune rules based on incident quality.
+
+The best Sentinel workspace is one where every ingested table has a purpose, owner, detection value, and retention decision.

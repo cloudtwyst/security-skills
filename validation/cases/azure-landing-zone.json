@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {
+      "prompt": "Design a CAF-aligned management group hierarchy for an enterprise Azure tenant.",
+      "expect": [
+        { "label": "Platform MG with Connectivity, Identity, Management subscriptions", "any": ["platform", "connectivity", "identity", "management"] },
+        { "label": "Landing Zones MG with Corp and Online archetypes", "any": ["landing zones", "corp", "online"] },
+        { "label": "Sandboxes MG isolated with no corp network peering", "any": ["sandbox"] },
+        { "label": "policy assignments inherit downward — assign guardrails at Landing Zones MG", "any": ["inherit", "landing zones"] },
+        { "label": "Tenant Root Group should have minimal direct policy assignments", "any": ["tenant root", "root group"] }
+      ]
+    },
+    {
+      "prompt": "What is the difference between Corp and Online landing zone archetypes?",
+      "expect": [
+        { "label": "Corp — hub peered, private connectivity, internal workloads", "any": ["corp", "hub", "private"] },
+        { "label": "Online — internet-facing, no hub peering, WAF/Front Door", "any": ["online", "internet", "waf"] },
+        { "label": "Sandbox — isolated, no corp network, for dev/test experiments", "any": ["sandbox", "isolated"] }
+      ]
+    },
+    {
+      "prompt": "How do I automate subscription vending into the correct landing zone?",
+      "expect": [
+        { "label": "automate subscription creation via Bicep or Landing Zone Accelerator", "any": ["bicep", "accelerator", "automat"] },
+        { "label": "land subscription in correct management group on creation", "any": ["management group", "mg"] },
+        { "label": "tag every subscription with environment, cost-centre, and owner at creation", "any": ["tag", "cost"] },
+        { "label": "never grant standing Owner at subscription scope — use PIM", "any": ["standing", "pim", "least privilege"] }
+      ]
+    }
+  ]
+}

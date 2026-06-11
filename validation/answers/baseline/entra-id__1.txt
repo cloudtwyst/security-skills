@@ -1,0 +1,49 @@
+For hybrid identity, decide the source of authority, synchronise only what is needed, and make authentication resilient before moving users at scale.
+
+1. Assess Active Directory
+- Check domain and forest health.
+- Clean up duplicate UPNs, invalid proxy addresses, stale users, stale groups, and unsupported characters.
+- Make user UPNs routable and aligned with verified Entra ID domains.
+- Review privileged groups and service accounts before synchronising.
+
+2. Choose the sync approach
+- Use Microsoft Entra Connect Sync for complex hybrid requirements.
+- Use Microsoft Entra Cloud Sync for simpler, agent-based provisioning where supported.
+- Use staging mode for migration or disaster recovery.
+
+3. Choose authentication
+- Password hash synchronisation is usually the simplest and most resilient.
+- Pass-through authentication can be used when password validation must happen on-premises.
+- Federation is appropriate only when you have a specific requirement and can operate it securely.
+- Consider seamless single sign-on if it fits the environment.
+
+4. Configure synchronisation scope
+- Start with a pilot OU or group.
+- Do not synchronise unnecessary admin, service, test, or stale accounts.
+- Configure attribute filtering if needed.
+- Protect privileged on-premises accounts from unintended cloud exposure.
+
+5. Install and secure the sync service
+- Install the sync tool on a hardened server.
+- Restrict local administrator access.
+- Protect the Entra Connect service account and connector accounts.
+- Monitor changes to synchronisation rules and configuration.
+
+6. Enable password and account controls
+- Enable password hash sync if selected.
+- Configure password writeback if users will reset passwords from the cloud.
+- Configure self-service password reset.
+- Plan account lockout and smart lockout settings.
+
+7. Pilot and validate
+- Test sign-in, MFA, Conditional Access, group sync, application access, password reset, and leaver scenarios.
+- Confirm sourceAnchor/immutable ID behaviour before broad rollout.
+- Monitor sync errors and provisioning logs.
+
+8. Operate securely
+- Keep Entra Connect updated.
+- Export and back up configuration.
+- Monitor sync health.
+- Maintain emergency access accounts that do not depend on on-premises AD.
+
+Hybrid identity is successful when users can sign in reliably, administrators understand the source of authority, and on-premises compromise does not automatically become cloud compromise.

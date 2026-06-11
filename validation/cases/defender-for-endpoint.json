@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "prompt": "Onboard endpoints to Defender for Endpoint and roll out ASR safely.",
+      "expect": [
+        { "label": "pilot ASR rules in audit mode before moving to block", "any": ["audit"] },
+        { "label": "enable tamper protection everywhere", "any": ["tamper protection"] },
+        { "label": "use device groups and RBAC to scope response actions", "any": ["device groups"] },
+        { "label": "enable EDR in block mode", "any": ["block mode"] }
+      ]
+    },
+    {
+      "prompt": "How do I respond to a compromised device and reduce future exposure?",
+      "expect": [
+        { "label": "isolate the device as a scoped response action", "any": ["isolate"] },
+        { "label": "use threat & vulnerability management to prioritise remediation", "any": ["vulnerability"] }
+      ]
+    }
+  ]
+}

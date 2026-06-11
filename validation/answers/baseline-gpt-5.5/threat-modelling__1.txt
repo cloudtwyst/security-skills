@@ -1,0 +1,26 @@
+In STRIDE, E stands for Elevation of Privilege.
+
+Elevation of Privilege means an attacker gains permissions they should not have. A normal user becomes an administrator, an unauthenticated caller reaches an authenticated function, a low-privilege service account can perform privileged operations, or a compromised component can cross a trust boundary.
+
+Common examples:
+- A user changes a request parameter and accesses another user's records.
+- An API checks authentication but not authorisation.
+- A service account has broad permissions it does not need.
+- A container breakout gives access to the host.
+- A vulnerable admin endpoint is exposed to normal users.
+- A path traversal or command injection flaw leads to system-level access.
+
+Elevation of Privilege maps most directly to the authorisation security property. The system must prove that the caller is allowed to perform the action, not merely that the caller is known.
+
+Mitigations include:
+- Enforce server-side authorisation on every sensitive operation.
+- Use least privilege for users, services, managed identities, and administrators.
+- Separate duties and use privileged access only when needed.
+- Validate trust boundaries between users, services, tenants, networks, and execution environments.
+- Avoid running services as root, local admin, or highly privileged identities.
+- Patch privilege escalation vulnerabilities quickly.
+- Harden admin interfaces and restrict them to trusted networks and devices.
+- Log privileged actions and alert on unusual privilege changes.
+- Add tests for horizontal and vertical authorisation bypass.
+
+The simple test is: if a lower-privileged actor can perform a higher-privileged action, you have an Elevation of Privilege threat.

@@ -1,0 +1,37 @@
+To reduce false positives for credit card numbers, tune the rule so it looks for real payment card data in the right context, not any 16-digit number.
+
+1. Review current matches
+- Use Activity explorer, DLP alerts, and matched event details.
+- Look at the content type, location, sender, recipient, confidence level, instance count, and surrounding text.
+- Separate true card data from order numbers, tracking numbers, employee IDs, invoice numbers, and test data.
+
+2. Increase confidence
+- Use the credit card sensitive information type at higher confidence.
+- Require supporting evidence such as keywords near the number, for example card, expiry, CVV, Visa, Mastercard, payment, or billing.
+- Require a higher instance count for lower-confidence matches.
+
+3. Add exceptions
+- Exclude known business identifiers that match card-like patterns.
+- Exclude approved templates, internal test data, or trusted senders where appropriate.
+- Exclude approved domains or systems only when the data flow is expected and documented.
+
+4. Tune by location
+- Use different thresholds for Exchange, SharePoint, OneDrive, Teams, and endpoints.
+- Email to external recipients may need stricter controls than internal SharePoint storage.
+- Endpoint copy to USB may need stricter controls than viewing a document.
+
+5. Use sensitivity labels where possible
+- Combine sensitive information types with labels such as Confidential or Highly Confidential.
+- Apply stronger restrictions when card data appears in labelled sensitive documents.
+
+6. Use policy tips and overrides during tuning
+- Let users submit business justification during pilot.
+- Review override reasons to identify legitimate workflows and noisy rules.
+- Move to blocking only when precision is acceptable.
+
+7. Test before enforcement
+- Build a test set with real examples of true positives and false positives.
+- Run the policy in test mode.
+- Adjust confidence, instance count, keywords, and exceptions until alerts are useful.
+
+The key is context. A DLP rule that matches a card number plus payment context is much more accurate than a rule that matches any long number.

@@ -1,0 +1,40 @@
+Build the Purview DLP policy in stages. Start by detecting sensitive data, then notify users, then restrict sharing once false positives are understood.
+
+1. Define the scope
+- Identify the sensitive information types, such as credit card numbers, national IDs, health records, financial data, or confidential project names.
+- Decide which locations are in scope: Exchange email, SharePoint, OneDrive, Teams, and endpoints.
+- Endpoint DLP requires onboarded devices and the right licensing, commonly Microsoft 365 E5 or equivalent compliance licensing.
+
+2. Create the policy
+- In Microsoft Purview compliance portal, go to Data loss prevention.
+- Create a custom policy or start from a template.
+- Select the locations you want to protect.
+- Limit the first rollout to pilot users or groups.
+
+3. Define rules
+- Add conditions for sensitive information types, sensitivity labels, trainable classifiers, or keywords.
+- Use confidence levels and instance counts to reduce noise.
+- Add exceptions for known business processes, approved domains, or trusted groups.
+
+4. Configure actions
+- Start in test mode with policy tips.
+- Notify users when they are about to share sensitive data.
+- Allow business justification or override during pilot if appropriate.
+- Then block or restrict external sharing, email sending, copying to USB, printing, or upload to unsupported cloud services as needed.
+
+5. Endpoint controls
+- For endpoints, configure restrictions for copy to removable media, print, clipboard, network share, remote desktop, and browser uploads.
+- Use endpoint groups so you can pilot with a small set of devices.
+
+6. Alerts and reporting
+- Configure alerts for high-severity events.
+- Review Activity explorer and DLP alerts.
+- Track false positives, overrides, business justification, and repeat offenders.
+
+7. Roll out safely
+- Pilot in audit or test mode.
+- Tune rules and exceptions.
+- Move from notify to block for high-confidence scenarios.
+- Expand users, locations, and endpoint controls gradually.
+
+The goal is not to block all sharing on day one. It is to protect high-risk data movement while giving users clear guidance and keeping business processes working.

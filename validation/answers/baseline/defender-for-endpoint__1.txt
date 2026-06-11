@@ -1,0 +1,45 @@
+For a compromised device, contain it first, preserve useful evidence, then remediate the root cause and reduce the chance of repeat compromise.
+
+1. Confirm scope and severity
+- Open the device page in Microsoft Defender XDR.
+- Review alerts, device timeline, logged-on users, process tree, network connections, file evidence, and related incidents.
+- Check whether the device is still communicating with suspicious infrastructure.
+
+2. Contain the device
+- Isolate the device from the network using Defender for Endpoint if business impact allows.
+- If isolation is not possible, remove it from the network manually.
+- Block malicious indicators where appropriate.
+
+3. Preserve evidence
+- Collect an investigation package.
+- Export relevant timeline, alert, process, file, and network evidence.
+- Capture volatile evidence if your forensic process requires it before wiping or rebuilding.
+
+4. Investigate users and lateral movement
+- Identify users who signed in to the device.
+- Check for credential theft, token theft, suspicious sign-ins, remote logons, admin tool use, and access to sensitive resources.
+- Reset credentials and revoke sessions for affected users if compromise is likely.
+
+5. Remediate
+- Run antivirus scan and remove detected malware.
+- Remove persistence such as scheduled tasks, services, startup items, malicious scripts, local admin additions, and remote access tools.
+- Patch exploited vulnerabilities.
+- Reimage the device if trust cannot be restored.
+
+6. Restore safely
+- Return the device to service only after it is clean, patched, compliant, and reporting healthy sensor status.
+- Confirm no related alerts are still active.
+
+7. Reduce future exposure
+- Enable tamper protection, EDR in block mode, cloud protection, network protection, and attack surface reduction rules.
+- Remove unnecessary local admin rights.
+- Enforce device compliance with Intune.
+- Patch operating systems and vulnerable applications.
+- Harden browsers, Office macros, PowerShell, and script execution.
+- Train users where phishing or unsafe downloads were involved.
+
+8. Improve detections
+- Create hunting queries or custom detections for observed indicators and behaviours.
+- Update incident runbooks and exceptions based on what happened.
+
+The device response is complete only when you know how it was compromised, which identities were exposed, and what control now prevents the same path.

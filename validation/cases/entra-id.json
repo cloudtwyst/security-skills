@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "prompt": "Design the identity foundation for a new Entra ID tenant.",
+      "expect": [
+        { "label": "move to phishing-resistant, passwordless authentication", "any": ["passwordless", "phishing-resistant"] },
+        { "label": "block legacy authentication", "any": ["legacy authentication"] },
+        { "label": "protect break-glass / emergency access accounts", "any": ["break-glass", "emergency access"] },
+        { "label": "govern app consent to prevent illicit consent grants", "any": ["consent"] }
+      ]
+    },
+    {
+      "prompt": "Set up hybrid identity with our on-premises Active Directory.",
+      "expect": [
+        { "label": "use Entra Connect or Cloud Sync", "any": ["entra connect", "cloud sync"] },
+        { "label": "password hash sync is the recommended baseline sign-in method", "any": ["password hash sync"] }
+      ]
+    }
+  ]
+}

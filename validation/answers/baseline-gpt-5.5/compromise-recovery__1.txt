@@ -1,0 +1,40 @@
+After eviction, the goal is to remove persistence, reduce privilege, and make the next sign-in attempt fail even if the attacker still has an old password, token, device, app consent, or secret.
+
+1. Enforce strong administrator authentication
+- Require phishing-resistant MFA for privileged roles, preferably FIDO2 security keys, certificate-based authentication, or Windows Hello for Business.
+- Block legacy authentication.
+- Require compliant or trusted devices for administrative access.
+- Keep emergency access accounts, but monitor them heavily and exclude them only from policies that could cause lockout.
+
+2. Remove standing privilege
+- Move administrators to Privileged Identity Management.
+- Use least privilege roles instead of Global Administrator.
+- Require approval, MFA on activation, justification, ticket numbers, short activation windows, and alerts for privileged activation.
+- Review eligible and active assignments regularly.
+
+3. Close persistence paths
+- Review enterprise applications, app registrations, service principals, OAuth consent grants, app secrets, certificates, and federated identity credentials.
+- Remove unused or suspicious apps.
+- Restrict user consent and require admin consent workflow.
+- Review federation, custom domains, AD FS, Entra Connect, pass-through authentication agents, and delegated admin relationships.
+
+4. Reset and rotate
+- Rotate credentials for privileged users, service accounts, automation accounts, app registrations, certificates, Key Vault secrets, and hybrid identity components.
+- Re-register MFA for impacted users.
+- Revoke sessions for compromised users after credentials and MFA methods are corrected.
+
+5. Harden Conditional Access
+- Create policies for admins first, then all users.
+- Require MFA, device compliance where appropriate, sign-in risk controls, user risk controls, location controls, and session controls.
+- Use report-only mode, pilot groups, break-glass exclusions, and staged rollout to avoid lockouts.
+
+6. Improve monitoring and response
+- Turn on audit logging, Defender XDR, identity protection alerts, and Sentinel analytics where licensed.
+- Alert on privileged role changes, app credential additions, consent grants, federation changes, emergency account sign-in, mailbox forwarding, and Conditional Access changes.
+- Retain logs long enough for investigation.
+
+7. Validate with an independent review
+- For a major tenant compromise, use qualified incident responders to confirm initial access, persistence, and blast radius.
+- Run a post-incident review and convert findings into controls, owners, and deadlines.
+
+The tenant is not hardened until you can explain how the attacker got in, which persistence paths were checked, which credentials were rotated, and which monitoring will alert if they try again.
