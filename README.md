@@ -1,14 +1,11 @@
-<p align="center">
-  <img src="assets/banner-v2.svg" alt="Microsoft Security Skills" width="100%">
-</p>
-
-<h1 align="center">Microsoft Security Skills Plugin</h1>
+<h1 align="center">CloudTwyst Security Skills Plugin</h1>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-50E6FF?style=flat-square&labelColor=0A2540" alt="License: MIT"></a>
   <img src="https://img.shields.io/badge/skills-59-50E6FF?style=flat-square&labelColor=0A2540" alt="59 skills">
   <img src="https://img.shields.io/badge/validated-2%20models-50E6FF?style=flat-square&labelColor=0A2540" alt="Validated across 2 models">
   <img src="https://img.shields.io/badge/grounded%20in-Microsoft%20Learn-50E6FF?style=flat-square&labelColor=0A2540" alt="Grounded in Microsoft Learn">
+  <img src="https://img.shields.io/badge/maintained%20by-CloudTwyst-50E6FF?style=flat-square&labelColor=0A2540" alt="Maintained by CloudTwyst">
   <img src="https://img.shields.io/badge/hosts-Copilot%20%7C%20Claude%20%7C%20Cursor%20%7C%20Codex%20%7C%20Gemini-50E6FF?style=flat-square&labelColor=0A2540" alt="Compatible hosts">
 </p>
 
@@ -102,7 +99,7 @@ The Microsoft Security Skills Plugin supports [APM](https://github.com/microsoft
 command installs it across GitHub Copilot, Claude Code, Cursor, OpenCode, Codex, and Gemini:
 
 ```bash
-apm install vinayaklatthe/microsoft-security-skills
+apm install cloudtwyst/security-skills
 ```
 
 ### Universal install (all hosts)
@@ -110,23 +107,23 @@ apm install vinayaklatthe/microsoft-security-skills
 Clone the repository and point your agent at the `skills/` directory:
 
 ```bash
-git clone https://github.com/vinayaklatthe/microsoft-security-skills.git
+git clone https://github.com/cloudtwyst/security-skills.git
 ```
 
 Or use the skills CLI to install globally for a specific host:
 
 ```bash
 # GitHub Copilot (VS Code, Copilot CLI)
-npx skills add https://github.com/vinayaklatthe/microsoft-security-skills/tree/main/skills -a github-copilot -g -y
+npx skills add https://github.com/cloudtwyst/security-skills/tree/main/skills -a github-copilot -g -y
 
 # Claude Code
-npx skills add https://github.com/vinayaklatthe/microsoft-security-skills/tree/main/skills -a claude -g -y
+npx skills add https://github.com/cloudtwyst/security-skills/tree/main/skills -a claude -g -y
 
 # Cursor
-npx skills add https://github.com/vinayaklatthe/microsoft-security-skills/tree/main/skills -a cursor -g -y
+npx skills add https://github.com/cloudtwyst/security-skills/tree/main/skills -a cursor -g -y
 
 # Codex CLI
-npx skills add https://github.com/vinayaklatthe/microsoft-security-skills/tree/main/skills -a codex -g -y
+npx skills add https://github.com/cloudtwyst/security-skills/tree/main/skills -a codex -g -y
 ```
 
 ### Gemini CLI
@@ -134,7 +131,7 @@ npx skills add https://github.com/vinayaklatthe/microsoft-security-skills/tree/m
 **Install the extension**:
 
 ```bash
-gemini extensions install https://github.com/vinayaklatthe/microsoft-security-skills
+gemini extensions install https://github.com/cloudtwyst/security-skills
 ```
 
 ## Verify the installation
@@ -362,7 +359,7 @@ GitHub Actions - see `.github/workflows/validate.yml`.
 - [Microsoft Sentinel documentation](https://learn.microsoft.com/azure/sentinel/)
 - [Microsoft Entra documentation](https://learn.microsoft.com/entra/)
 - [Microsoft Purview documentation](https://learn.microsoft.com/purview/)
-- [microsoft/azure-skills](https://github.com/microsoft/azure-skills) - the Azure equivalent of this plugin
+- [cloudtwyst/security-skills](https://github.com/cloudtwyst/security-skills) - this plugin on GitHub
 
 ## Contributing
 

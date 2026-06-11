@@ -1,20 +1,20 @@
-name: microsoft-security-skills
-version: 0.1.0
-description: Curated Microsoft Security skills for AI agents. Practical guidance
-  across Defender, Sentinel, Entra, Intune, Purview, and Azure platform security,
-  grounded in public Microsoft Learn documentation.
+name: cloudtwyst-security-skills
+version: 1.0.0
+description: Curated Microsoft Security skills for AI agents — CloudTwyst edition.
+  Practical guidance across Defender, Sentinel, Entra, Intune, Purview, EPAC, Azure
+  Landing Zone, and Azure platform security, grounded in public Microsoft Learn documentation.
 
 # Marketplace authoring: source of truth for plugin registration.
 # Regenerate with `apm pack` (https://github.com/microsoft/apm).
 marketplace:
   owner:
-    name: Vinayak Latthe
-    url: https://github.com/vinayaklatthe
+    name: CloudTwyst
+    url: https://github.com/cloudtwyst
   packages:
-    - name: microsoft-security
+    - name: cloudtwyst-security-skills
       description: Curated Microsoft Security skills for AI agents covering threat
-        protection, identity, compliance, and cloud platform security. Provides
-        decision trees, workflows, and guardrails grounded in public Microsoft
-        Learn documentation.
+        protection, identity, compliance, cloud platform security, and landing zone
+        governance (EPAC, Azure Landing Zone, DINE diagnostics). Decision trees,
+        workflows, and guardrails grounded in public Microsoft Learn documentation.
       source: ./
-      homepage: https://github.com/vinayaklatthe/microsoft-security-skills
+      homepage: https://github.com/cloudtwyst/security-skills
