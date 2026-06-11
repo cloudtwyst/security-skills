@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://github.com/cloudtwyst/security-skills">
+    <img src="assets/ct-icon.png" alt="CloudTwyst" width="100" height="100">
+  </a>
+</p>
+
 <h1 align="center">CloudTwyst Security Skills Plugin</h1>
 
 <p align="center">
